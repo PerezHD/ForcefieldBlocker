@@ -1,0 +1,5 @@
+name: ForcefieldBlocker
+description: Plugin that spawns an invisible player above a player to block forcefield hacks.
+version: 1.0-SNAPSHOT
+authors: [harry5573]
+main: net.harry5573.forcefieldblocker.ForcefieldBlocker
