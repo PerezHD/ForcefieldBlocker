@@ -29,12 +29,6 @@ import lombok.Getter;
 public class EntityStorage {
 
       @Getter
-      private final int entity_north_id;
-      @Getter
-      private final int entity_east_id;
-      @Getter
-      private final int entity_south_id;
-      @Getter
-      private final int entity_west_id;
+      private final int entity_id;
 
 }

@@ -38,7 +38,7 @@ public class PlayerListener implements Listener {
 
       @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
       public void onJoin(final PlayerJoinEvent event) {
-            storedEntities.put(event.getPlayer().getUniqueId(), new EntityStorage(EntityUtil.spawnFakePlayer(event.getPlayer(), event.getPlayer().getLocation().add(-1, 2, 0)), EntityUtil.spawnFakePlayer(event.getPlayer(), event.getPlayer().getLocation().add(1, 2, 0)), EntityUtil.spawnFakePlayer(event.getPlayer(), event.getPlayer().getLocation().add(0, 2, -1)), EntityUtil.spawnFakePlayer(event.getPlayer(), event.getPlayer().getLocation().add(0, 2, 1))));
+            storedEntities.put(event.getPlayer().getUniqueId(), new EntityStorage(EntityUtil.spawnFakePlayer(event.getPlayer(), event.getPlayer().getLocation().add(0, 2, 0))));
       }
 
       @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
@@ -48,12 +48,9 @@ public class PlayerListener implements Listener {
                   return;
             }
 
-            EntityUtil.killEntity(event.getPlayer(), storedEntities.get(event.getPlayer().getUniqueId()).getEntity_east_id());
-            EntityUtil.killEntity(event.getPlayer(), storedEntities.get(event.getPlayer().getUniqueId()).getEntity_west_id());
-            EntityUtil.killEntity(event.getPlayer(), storedEntities.get(event.getPlayer().getUniqueId()).getEntity_south_id());
-            EntityUtil.killEntity(event.getPlayer(), storedEntities.get(event.getPlayer().getUniqueId()).getEntity_north_id());
+            EntityUtil.killEntity(event.getPlayer(), storedEntities.get(event.getPlayer().getUniqueId()).getEntity_id());
             storedEntities.remove(event.getPlayer().getUniqueId());
-            storedEntities.put(event.getPlayer().getUniqueId(), new EntityStorage(EntityUtil.spawnFakePlayer(event.getPlayer(), event.getPlayer().getLocation().add(-1, 2, 0)), EntityUtil.spawnFakePlayer(event.getPlayer(), event.getPlayer().getLocation().add(1, 2, 0)), EntityUtil.spawnFakePlayer(event.getPlayer(), event.getPlayer().getLocation().add(0, 2, -1)), EntityUtil.spawnFakePlayer(event.getPlayer(), event.getPlayer().getLocation().add(0, 2, 1))));
+            storedEntities.put(event.getPlayer().getUniqueId(), new EntityStorage(EntityUtil.spawnFakePlayer(event.getPlayer(), event.getPlayer().getLocation().add(0, 2, 0))));
       }
 
       @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)

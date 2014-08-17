@@ -39,11 +39,10 @@ public class EntityUtil {
             wrapper.setEntityID(random.nextInt(20000));
             wrapper.setPosition(spawnLocation.toVector());
             wrapper.setPlayerUUID(UUID.randomUUID().toString());
-            wrapper.setPlayerName(String.valueOf(random.nextInt()));
+            wrapper.setPlayerName("Friend " + String.valueOf(random.nextInt(2000)));
             wrapper.setYaw(0);
             wrapper.setPitch(-45);
             WrappedDataWatcher watcher = new WrappedDataWatcher();
-            watcher.setObject(0, (byte) 0x20);
             watcher.setObject(6, (Float) (float) 0.5);
             watcher.setObject(11, (Byte) (byte) 1);
             wrapper.setMetadata(watcher);
