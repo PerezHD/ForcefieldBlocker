@@ -17,14 +17,13 @@
 
 package net.harry5573.forcefieldblocker.util;
 
-import com.comphenix.packetwrapper.WrapperPlayServerEntityTeleport;
+import com.comphenix.packetwrapper.WrapperPlayServerEntityDestroy;
 import com.comphenix.packetwrapper.WrapperPlayServerNamedEntitySpawn;
 import com.comphenix.protocol.wrappers.WrappedDataWatcher;
 import java.util.Random;
 import java.util.UUID;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-import org.bukkit.util.Vector;
 
 /**
  * https://www.github.com/Harry5573OP
@@ -52,12 +51,9 @@ public class EntityUtil {
             return wrapper.getEntityID();
       }
 
-      public static void teleportEntity(Player player, int entity_id, Vector location) {
-            WrapperPlayServerEntityTeleport wrapper = new WrapperPlayServerEntityTeleport();
-            wrapper.setEntityID(entity_id);
-            wrapper.setX(location.getX());
-            wrapper.setY(location.getY());
-            wrapper.setZ(location.getZ());
+      public static void killEntity(Player player, int entity_id) {
+            WrapperPlayServerEntityDestroy wrapper = new WrapperPlayServerEntityDestroy();
+            wrapper.setEntities(new int[]{entity_id});
             wrapper.sendPacket(player);
       }
 
